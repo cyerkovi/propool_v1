@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:propool_v1/utilities/constants.dart';
 import 'package:propool_v1/utilities/styles.dart';
+import 'package:propool_v1/utilities/common_widgets.dart';
 import 'package:propool_v1/screens/home_screen.dart';
+import 'package:propool_v1/screens/seasongameset_home_screen.dart';
 import 'package:propool_v1/services/propool_server_api.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -14,6 +16,11 @@ class _SignInScreenState extends State<SignInScreen> {
   String password;
   String messageToScreen = '';
 
+  void getHomeData() async {
+    var seasongamesetData = await ProPoolServer().getHomeSeasongameset();
+    return seasongamesetData;
+  }
+
   void authenticateUser() async {
     String loginStatus = await ProPoolServer().login(email, password);
     // status can be:
@@ -22,8 +29,13 @@ class _SignInScreenState extends State<SignInScreen> {
     // Service Unavailable
     // Access Denied
     //
+    print('loginStatus is');
+    print(loginStatus);
     if (loginStatus == 'Success') {
+      var seasongamesetData = getHomeData();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
+        // return SeasongamesetHomeScreen(seasongamesetData);
+        // return SeasongamesetHomeScreen();
         return HomeScreen();
       }));
     } else if (loginStatus == "") {
@@ -40,7 +52,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: kAppBar,
+      appBar: wAppBar,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SafeArea(

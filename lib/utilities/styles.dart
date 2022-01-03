@@ -8,3 +8,7 @@ const kButtonTextStyle = TextStyle(
 const kInputTextStyle = TextStyle(
   color: Colors.white,
 );
+
+const kTitleTextStyle = TextStyle(
+  fontSize: 20.0,
+);

@@ -16,11 +16,16 @@ const kConfpoolSeasonResults = 'api/confnosprdseasonpointrslts/';
 
 // environments
 // dev
-// Client IDs and Client Secrets are stored in oauth_applications table
 
-const kPigskinServerURI = '201e-73-15-21-12.ngrok.io';
+// URI is from ngrok on server machine
+// const kPigskinServerURI = '201e-73-15-21-12.ngrok.io';
+const kPigskinServerURI = 'edc6-73-241-248-208.ngrok.io';
+//
+// Client IDs and Client Secrets are stored in oauth_applications table
+// id and secret for db propool_20211026
 const kClientID = 'PRCdw-qycPOBffI-QNc___k1V6s4hb4sW4xOI9f1o3I';
 const kClientSecret = 'qktieogae58KxtmgmD-23QZHREmFZ16B_qpYJYIs8hA';
+//
 // const kClientID = 'GacBWAery63mH204s2z3Q4pGcBrMejfxtagHjNDJtrw';
 // const kClientSecret = 'oxwIpfIsT1pYiEGhInSLdfjB68e0_1HfKQ4CjiN81Iw';
 // the following two are for db propool_test_20210510
